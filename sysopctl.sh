@@ -99,4 +99,22 @@ case "$1" in
         esac
         ;;
 
+    # Monitor system processes
+    process)
+        case "$2" in
+            # Monitor system processes similar to 'top' or 'htop'
+            monitor)
+                echo "Monitoring system processes..."
+                # Runs top in batch mode to display real-time processes
+                top -n 1
+                ;;
+            *)
+                # If an unknown process command is entered
+                echo "Unknown process command: $2"
+                exit 1
+                ;;
+        esac
+        ;;
+       
+
      
