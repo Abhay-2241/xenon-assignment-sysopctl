@@ -19,3 +19,12 @@ case "$1" in
         echo "  version         - Show version information"
         exit 0
         ;;
+
+
+     # Display the version of the script
+    --version)
+        echo "sysopctl version v0.1.0"
+        exit 0
+        ;;
+
+   
