@@ -64,4 +64,21 @@ case "$1" in
         esac
         ;;
 
+    # System-related commands
+    system)
+        case "$2" in
+            # Display current system load
+            load)
+                echo "Current system load averages:"
+                # Uses uptime to display system load
+                uptime
+                ;;
+            *)
+                # If an unknown system command is entered
+                echo "Unknown system command: $2"
+                exit 1
+                ;;
+        esac
+        ;;
+
     
