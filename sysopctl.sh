@@ -115,6 +115,23 @@ case "$1" in
                 ;;
         esac
         ;;
-       
+
+
+    # Analyze system logs for critical entries
+    logs)
+        case "$2" in
+            # Analyze system logs
+            analyze)
+                echo "Analyzing system logs for recent critical entries..."
+                # Uses journalctl to show logs, filtered by priority for critical logs
+                journalctl -p crit -n 10
+                ;;
+            *)
+                # If an unknown logs command is entered
+                echo "Unknown logs command: $2"
+                exit 1
+                ;;
+        esac
+        ;;
 
      
