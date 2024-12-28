@@ -27,4 +27,41 @@ case "$1" in
         exit 0
         ;;
 
-   
+    # Process management commands (alternative to system services in WSL)
+    service)
+        case "$2" in
+            # List all running processes
+            list)
+                echo "Listing all running processes..."
+                # Uses ps to list processes instead of systemctl
+                ps aux
+                ;;
+            # Start a specified service (Not directly possible in WSL, so simulating behavior)
+            start)
+                if [ -z "$3" ]; then
+                    echo "Please specify a service name to start."
+                    exit 1
+                fi
+                echo "Starting service: $3"
+                # Simulating the start of a service (no actual service control in WSL)
+                echo "Service '$3' started successfully (simulated)."
+                ;;
+            # Stop a specified service (Not directly possible in WSL, so simulating behavior)
+            stop)
+                if [ -z "$3" ]; then
+                    echo "Please specify a service name to stop."
+                    exit 1
+                fi
+                echo "Stopping service: $3"
+                # Simulating the stop of a service (no actual service control in WSL)
+                echo "Service '$3' stopped successfully (simulated)."
+                ;;
+            *)
+                # If an unknown service command is entered
+                echo "Unknown service command: $2"
+                exit 1
+                ;;
+        esac
+        ;;
+
+    
