@@ -134,4 +134,23 @@ case "$1" in
         esac
         ;;
 
+    # Backup system files using rsync
+    backup)
+        if [ -z "$2" ]; then
+            echo "Please specify the path to backup."
+            exit 1
+        fi
+        echo "Backing up files from $2..."
+        # Using rsync to backup files
+        rsync -av --progress "$2" "$HOME/backup"
+        echo "Backup completed successfully."
+        ;;
+
+    # Default case for unknown options
+    *)
+        echo "Unknown option: $1"
+        echo "Use '--help' for usage information."
+        exit 1
+        ;;
+
      
