@@ -81,4 +81,22 @@ case "$1" in
         esac
         ;;
 
-    
+
+    # Disk-related commands
+    disk)
+        case "$2" in
+            # Display disk usage statistics
+            usage)
+                echo "Disk usage statistics by partition:"
+                # Uses df -h to display disk usage
+                df -h
+                ;;
+            *)
+                # If an unknown disk command is entered
+                echo "Unknown disk command: $2"
+                exit 1
+                ;;
+        esac
+        ;;
+
+     
